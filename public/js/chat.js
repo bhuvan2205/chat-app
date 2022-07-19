@@ -88,7 +88,7 @@ $form.addEventListener('submit', (e) => {
     const text = $formInput.value.trim();
 
     if(!text){
-        return console.log("Type Something!");
+        return alert("Type Something!");
     }
 
     $formBtn.setAttribute('disabled', 'disabled');
@@ -106,7 +106,6 @@ $form.addEventListener('submit', (e) => {
             return console.log(error);
         }
 
-        console.log('Message delivered!');
     });
 });
 
