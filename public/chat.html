@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+    <div class="chat">
+        <div class="chat__sidebar" id="sidebar">
+
+        </div>
+
+        <div class="chat__main">
+
+            <div class="chat__messages" id="messages"></div>
+
+            <div class="compose">
+                <form id="msg_form">
+                    <input type="text" name="message_input" placeholder="Enter you message" autocomplete="off">
+                    <button type="submit" id="send_btn">Send</button>
+                </form>
+    
+                <button id="location_btn">Share Location</button>
+            </div>
+
+            
+        </div>
+
+    </div>
+
+
+
+    <script id="message-template" type="text/html">
+        <div class="message">
+            <p>
+                <span class="message__name">{{username}}</span>
+                <span class="message_meta">{{createdAt}}</span>
+            </p>
+            <p>{{message}}</p>
+        </div>
+    </script>
+
+    <script id="location_message-template" type="text/html">
+        <div class="message">
+            <p>
+                <span class="message__name">{{username}}</span>
+                <span class="message_meta">{{createdAt}}</span>
+            </p>
+            <p><a href="{{url}}" target="_blank"> View Location </a></p>
+        </div>
+    </script>
+
+    <script id="sidebar-template">
+        <div>
+            <h2 class="room-title">Room: {{room}}</h2>
+            <h3 class="list-title">Users</h3>
+            <ul class='users'>
+                {{#users}}
+                    <li>{{username}}</li>
+                {{/users}}
+            </ul>
+        </div>
+    </script>
+
+    <script src="https://unpkg.com/mustache@4.2.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.0/qs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/chat.js"></script>
+
+</body>
+
+</html>
