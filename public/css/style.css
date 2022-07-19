@@ -289,6 +289,7 @@ button:disabled {
 
     .chat__sidebar {
         position: absolute;
+        height: 100%;
         width: 100vw;
         transform: translateX(-100%);
         max-width: unset;
