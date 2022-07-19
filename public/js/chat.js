@@ -47,7 +47,7 @@ socket.on('message', (message) => {
     const html = Mustache.render(messageTemplate, {
         username: message.username,
         message: message.text,
-        createdAt: moment(message.createdAt).format('h:m:A')
+        createdAt: moment(message.createdAt).format('h:m A')
     });
     $messages.insertAdjacentHTML('beforeend', html);
     autoscroll();
@@ -60,7 +60,7 @@ socket.on('locationMessage', (message)=> {
     const html = Mustache.render(LocationmessageTemplate, {
         username: message.username,
         url: message.url,
-        createdAt: moment(message.createdAt).format('h:m:A')
+        createdAt: moment(message.createdAt).format('h:m A')
     });
     $messages.insertAdjacentHTML('beforeend', html);
 });
@@ -141,5 +141,27 @@ socket.emit('join', { username, room }, (error)=> {
 
         alert(error);
         location.href= '/';
+    }
+});
+
+//Mobile Responsive
+
+const roomDiv = document.querySelector('.chat-details');
+roomDiv.addEventListener('click', ()=> {
+
+    console.log('btn click')
+
+    const element = document.querySelector('#sidebar');
+    console.log(element.classList);
+
+    if(element.classList.contains('mobile-view')){
+
+        element.className="chat__sidebar";
+        roomDiv.innerHTML = "Room?";
+    }
+    else{
+
+        element.className="chat__sidebar mobile-view";
+        roomDiv.innerHTML = "Chat?";
     }
 });
