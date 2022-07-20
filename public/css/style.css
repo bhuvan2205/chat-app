@@ -252,6 +252,10 @@ button:disabled {
     margin: 5px 0;
 }
 
+.users li::marker{
+    color: rgb(0, 64, 255);
+}
+
 .chat-details{
     display: none;
 }
